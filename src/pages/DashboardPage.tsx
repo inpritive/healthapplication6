@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
 import {
   AlertTriangle, Calendar, Users, CheckCircle2, Clock, ArrowRight,
-  Plus, FileText, Syringe, Phone, Activity, Bell, MapPin
+  Plus, FileText, Syringe, Phone, Activity, Bell, MapPin, Landmark, Droplet, ClipboardList, Baby
 } from 'lucide-react';
 
 const actionsNeeded = [
@@ -146,22 +146,42 @@ export default function DashboardPage() {
             {/* Quick Actions */}
             <div className="card">
               <h2 className="font-display font-bold text-lg text-maatri-900 mb-4">{t('quickActions')}</h2>
-              <div className="grid grid-cols-2 gap-3">
-                <Link to="/register" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-maatri-50 hover:bg-maatri-100 transition-colors">
-                  <Plus className="w-6 h-6 text-maatri-600" />
-                  <span className="text-xs font-medium text-center">{t('register')}</span>
+              <div className="grid grid-cols-3 gap-3">
+                <Link to="/register" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-maatri-50 hover:bg-maatri-100 transition-colors">
+                  <Plus className="w-5 h-5 text-maatri-600" />
+                  <span className="text-[10px] font-medium text-center">{t('register')}</span>
                 </Link>
-                <Link to="/visit" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-maatri-50 hover:bg-maatri-100 transition-colors">
-                  <FileText className="w-6 h-6 text-maatri-600" />
-                  <span className="text-xs font-medium text-center">{t('visit')}</span>
+                <Link to="/visit" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-maatri-50 hover:bg-maatri-100 transition-colors">
+                  <FileText className="w-5 h-5 text-maatri-600" />
+                  <span className="text-[10px] font-medium text-center">{t('visit')}</span>
                 </Link>
-                <Link to="/immunization" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-maatri-50 hover:bg-maatri-100 transition-colors">
-                  <Syringe className="w-6 h-6 text-maatri-600" />
-                  <span className="text-xs font-medium text-center">{t('immunization')}</span>
+                <Link to="/immunization" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-maatri-50 hover:bg-maatri-100 transition-colors">
+                  <Syringe className="w-5 h-5 text-maatri-600" />
+                  <span className="text-[10px] font-medium text-center">{t('immunization')}</span>
                 </Link>
-                <a href="tel:108" className="flex flex-col items-center gap-2 p-4 rounded-xl bg-coral-50 hover:bg-coral-100 transition-colors">
-                  <Phone className="w-6 h-6 text-coral-600" />
-                  <span className="text-xs font-medium text-center">{t('emergency')}</span>
+                <Link to="/schemes" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-blue-50 hover:bg-blue-100 transition-colors">
+                  <Landmark className="w-5 h-5 text-blue-600" />
+                  <span className="text-[10px] font-medium text-center">Schemes</span>
+                </Link>
+                <Link to="/appointments" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-purple-50 hover:bg-purple-100 transition-colors">
+                  <Calendar className="w-5 h-5 text-purple-600" />
+                  <span className="text-[10px] font-medium text-center">Appts</span>
+                </Link>
+                <Link to="/donors" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-red-50 hover:bg-red-100 transition-colors">
+                  <Droplet className="w-5 h-5 text-red-600" />
+                  <span className="text-[10px] font-medium text-center">Donors</span>
+                </Link>
+                <Link to="/birth-plan" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-coral-50 hover:bg-coral-100 transition-colors">
+                  <ClipboardList className="w-5 h-5 text-coral-600" />
+                  <span className="text-[10px] font-medium text-center">Birth Plan</span>
+                </Link>
+                <Link to="/postnatal" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-sage-50 hover:bg-sage-100 transition-colors">
+                  <Baby className="w-5 h-5 text-sage-600" />
+                  <span className="text-[10px] font-medium text-center">Postnatal</span>
+                </Link>
+                <a href="tel:108" className="flex flex-col items-center gap-2 p-3 rounded-xl bg-coral-50 hover:bg-coral-100 transition-colors">
+                  <Phone className="w-5 h-5 text-coral-600" />
+                  <span className="text-[10px] font-medium text-center">{t('emergency')}</span>
                 </a>
               </div>
             </div>

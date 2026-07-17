@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { User, Calendar, Activity, Syringe, AlertTriangle } from 'lucide-react';
+import { User, Calendar, Activity, Syringe, AlertTriangle, Award, QrCode } from 'lucide-react';
 
 const beneficiary = {
   name: 'Sunita Devi', age: 26, village: 'Rampur', phone: '+91 98765 43210',
@@ -54,6 +54,48 @@ export default function BeneficiaryProfilePage() {
                     ))}
                   </div>
                 )}
+              </div>
+            </div>
+          </div>
+
+          {/* Identity & Gamification */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-6">
+            <div className="card border-2 border-gold-200 bg-gradient-to-br from-gold-50 to-white flex items-center gap-4">
+              <div className="w-16 h-16 bg-gold-100 text-gold-500 rounded-full flex items-center justify-center shrink-0">
+                <Award className="w-8 h-8" />
+              </div>
+              <div>
+                <p className="text-xs font-bold text-gold-600 uppercase tracking-wider mb-0.5">Health Score</p>
+                <div className="flex items-end gap-1">
+                  <p className="text-3xl font-display font-bold text-gray-900">450</p>
+                  <p className="text-sm text-gray-500 mb-1">pts</p>
+                </div>
+                <p className="text-xs font-medium text-gray-700 mt-1 flex items-center gap-1">
+                  <span className="text-gold-500">🏆</span> Nutrition Champion
+                </p>
+              </div>
+            </div>
+
+            <div className="card flex items-center justify-between">
+              <div>
+                <h3 className="font-display font-bold text-lg text-maatri-900 mb-1 flex items-center gap-2">
+                  <QrCode className="w-5 h-5 text-maatri-500" /> ABHA ID
+                </h3>
+                <p className="text-sm text-gray-500 font-mono tracking-widest mb-3">12-3456-7890-1234</p>
+                <button className="text-xs font-semibold px-3 py-1.5 bg-maatri-100 text-maatri-700 rounded-lg hover:bg-maatri-200 transition-colors">
+                  View Full Profile
+                </button>
+              </div>
+              <div className="w-20 h-20 bg-white border-2 border-gray-100 rounded-xl flex items-center justify-center shrink-0 shadow-sm p-1.5">
+                <div className="w-full h-full grid grid-cols-4 grid-rows-4 gap-[2px]">
+                   <div className="bg-maatri-900 rounded-sm col-span-2 row-span-2"></div>
+                   <div className="bg-maatri-900 rounded-sm col-span-1 row-span-1"></div>
+                   <div className="bg-maatri-100 rounded-sm col-span-1 row-span-1"></div>
+                   <div className="bg-maatri-900 rounded-sm col-span-2 row-span-2"></div>
+                   <div className="bg-maatri-900 rounded-sm col-span-1 row-span-1 col-start-4 row-start-2"></div>
+                   <div className="bg-maatri-900 rounded-sm col-span-2 row-span-2 col-start-3 row-start-3"></div>
+                   <div className="bg-maatri-900 rounded-sm col-span-1 row-span-1"></div>
+                </div>
               </div>
             </div>
           </div>

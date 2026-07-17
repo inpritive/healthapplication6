@@ -15,6 +15,11 @@ import EmergencyPage from '@/pages/EmergencyPage';
 import AboutSDG3Page from '@/pages/AboutSDG3Page';
 import ContactFeedbackPage from '@/pages/ContactFeedbackPage';
 import WellnessTrackerPage from '@/pages/WellnessTrackerPage';
+import GovtSchemesPage from '@/pages/GovtSchemesPage';
+import AppointmentsPage from '@/pages/AppointmentsPage';
+import BloodDonorPage from '@/pages/BloodDonorPage';
+import PostnatalPage from '@/pages/PostnatalPage';
+import BirthPreparednessPage from '@/pages/BirthPreparednessPage';
 
 export default function App() {
   return (
@@ -36,6 +41,11 @@ export default function App() {
           <Route path="/about" element={<AboutSDG3Page />} />
           <Route path="/contact" element={<ContactFeedbackPage />} />
           <Route path="/wellness" element={<WellnessTrackerPage />} />
+          <Route path="/schemes" element={<GovtSchemesPage />} />
+          <Route path="/appointments" element={<AppointmentsPage />} />
+          <Route path="/donors" element={<BloodDonorPage />} />
+          <Route path="/postnatal" element={<PostnatalPage />} />
+          <Route path="/birth-plan" element={<BirthPreparednessPage />} />
         </Routes>
       </BrowserRouter>
     </LanguageProvider>

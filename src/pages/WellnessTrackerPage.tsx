@@ -4,7 +4,7 @@ import Layout from '@/components/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
 import {
   Apple, Droplets, Moon, Smile, Dumbbell, Pill, Scale, Thermometer,
-  Calendar, FlaskConical, Brain, Zap, Plus, Target
+  Calendar, FlaskConical, Brain, Zap, Plus, Target, AlertTriangle, Activity, CheckCircle2, Check
 } from 'lucide-react';
 
 const trackingCategories = [
@@ -27,12 +27,33 @@ const dailyProgress = [
   { label: 'trackWater', current: 6, target: 8, unit: 'glasses' },
   { label: 'trackNutrition', current: 1800, target: 2200, unit: 'calories' },
   { label: 'trackSleep', current: 7, target: 8, unit: 'hours' },
-  { label: 'trackSupplements', current: 1, target: 1, unit: 'supplement' },
+];
+
+const dangerSignsList = [
+  "Severe headache or blurred vision",
+  "Severe abdominal pain",
+  "Vaginal bleeding",
+  "Reduced fetal movement",
+  "High fever or chills",
+  "Difficulty breathing"
+];
+
+const mealPlan = [
+  { time: "Morning", meal: "1 glass milk, 2 boiled eggs, handful of almonds" },
+  { time: "Lunch", meal: "Dal, spinach (palak), 2 roti, curd" },
+  { time: "Evening", meal: "Roasted chana with jaggery (gur) - Iron boost!" },
+  { time: "Dinner", meal: "Mixed vegetable sabzi, brown rice, salad" }
 ];
 
 export default function WellnessTrackerPage() {
   const { t } = useLanguage();
   const [activeLog, setActiveLog] = useState<string | null>(null);
+  const [checkedSigns, setCheckedSigns] = useState<string[]>([]);
+  const [ifaTaken, setIfaTaken] = useState(false);
+
+  const toggleSign = (sign: string) => {
+    setCheckedSigns(prev => prev.includes(sign) ? prev.filter(s => s !== sign) : [...prev, sign]);
+  };
 
   return (
     <Layout show3D variant3D="minimal">
@@ -41,8 +62,76 @@ export default function WellnessTrackerPage() {
           <h1 className="section-title mb-2">{t('wellnessDashboard')}</h1>
           <p className="text-gray-600 mb-8">{t('maternalDashboard')}</p>
 
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+            
+            {/* Danger Signs Self-Checker */}
+            <div className="card border-2 border-coral-200 lg:col-span-1">
+              <h2 className="font-display font-bold text-xl text-coral-600 mb-4 flex items-center gap-2">
+                <AlertTriangle className="w-6 h-6" /> Danger Signs
+              </h2>
+              <p className="text-sm text-gray-600 mb-4">Select any symptoms you are experiencing today:</p>
+              <div className="space-y-2 mb-4">
+                {dangerSignsList.map((sign, i) => (
+                  <label key={i} className="flex items-start gap-3 cursor-pointer group">
+                    <div className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded border flex items-center justify-center transition-colors ${checkedSigns.includes(sign) ? 'bg-coral-500 border-coral-500' : 'border-gray-300 group-hover:border-coral-400'}`}>
+                      {checkedSigns.includes(sign) && <Check className="w-3.5 h-3.5 text-white" />}
+                    </div>
+                    <span className="text-sm text-gray-700">{sign}</span>
+                  </label>
+                ))}
+              </div>
+              {checkedSigns.length > 0 && (
+                <div className="p-3 bg-coral-50 rounded-xl border border-coral-200 text-coral-700 text-sm font-medium animate-pulse">
+                  Warning: You have selected critical danger signs. Please contact your ASHA worker or go to the nearest hospital immediately.
+                </div>
+              )}
+            </div>
+
+            {/* Anemia/Iron Tracker */}
+            <div className="card lg:col-span-1">
+              <h2 className="font-display font-bold text-xl text-maatri-900 mb-4 flex items-center gap-2">
+                <Activity className="w-6 h-6 text-coral-500" /> Anemia Tracker
+              </h2>
+              <div className="bg-maatri-50 rounded-2xl p-4 mb-4 text-center">
+                <p className="text-sm text-gray-500 mb-1">Latest Hemoglobin (Hb)</p>
+                <p className="text-3xl font-bold text-coral-500">10.2 <span className="text-sm font-medium text-gray-500">g/dL</span></p>
+                <p className="text-xs text-coral-600 mt-1 font-medium">Mild Anemia - IFA Supplementation Required</p>
+              </div>
+              
+              <div className="border-t border-gray-100 pt-4">
+                <p className="text-sm font-medium text-gray-700 mb-3">Daily IFA (Iron Folic Acid) Pill</p>
+                <button 
+                  onClick={() => setIfaTaken(!ifaTaken)}
+                  className={`w-full py-3 rounded-xl flex items-center justify-center gap-2 font-semibold transition-all ${ifaTaken ? 'bg-sage-100 text-sage-600 border border-sage-200' : 'bg-white border-2 border-dashed border-gray-300 text-gray-500 hover:border-maatri-300 hover:text-maatri-600'}`}
+                >
+                  {ifaTaken ? <CheckCircle2 className="w-5 h-5" /> : <Pill className="w-5 h-5" />}
+                  {ifaTaken ? 'Taken Today' : 'Log IFA Pill'}
+                </button>
+              </div>
+            </div>
+
+            {/* Meal Plan Module */}
+            <div className="card lg:col-span-1">
+              <h2 className="font-display font-bold text-xl text-maatri-900 mb-4 flex items-center gap-2">
+                <Apple className="w-6 h-6 text-maatri-600" /> Today's Meal Plan
+              </h2>
+              <div className="space-y-3">
+                {mealPlan.map((meal, i) => (
+                  <div key={i} className="flex gap-3 items-start p-3 rounded-xl bg-gray-50">
+                    <div className="w-1.5 h-1.5 rounded-full bg-maatri-500 mt-2 shrink-0"></div>
+                    <div>
+                      <p className="text-xs font-semibold text-maatri-600 uppercase tracking-wider mb-0.5">{meal.time}</p>
+                      <p className="text-sm text-gray-700">{meal.meal}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+          </div>
+
           {/* Daily Progress */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
             {dailyProgress.map((item, i) => (
               <div key={i} className="card">
                 <div className="flex items-center justify-between mb-2">

@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 
 import { useLanguage } from '@/i18n/LanguageContext';
 
-import { Heart, Phone } from 'lucide-react';
+import { Heart, Phone, MessageCircle } from 'lucide-react';
 
 
 
@@ -36,7 +36,7 @@ export default function Footer() {
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 relative">
 
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-5 gap-8">
 
             <motion.div
 
@@ -79,35 +79,39 @@ export default function Footer() {
             >
 
               <h4 className="font-semibold text-lg mb-4">{t('features')}</h4>
-
               <ul className="space-y-2 text-maatri-200">
-
                 <li><Link to="/dashboard" className="hover:text-white transition-colors hover:translate-x-1 inline-block">{t('dashboard')}</Link></li>
-
                 <li><Link to="/register" className="hover:text-white transition-colors hover:translate-x-1 inline-block">{t('register')}</Link></li>
-
                 <li><Link to="/wellness" className="hover:text-white transition-colors hover:translate-x-1 inline-block">{t('wellness')}</Link></li>
-
                 <li><Link to="/education" className="hover:text-white transition-colors hover:translate-x-1 inline-block">{t('education')}</Link></li>
-
               </ul>
-
             </motion.div>
 
-
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.15 }}
+            >
+              <h4 className="font-semibold text-lg mb-4">Services</h4>
+              <ul className="space-y-2 text-maatri-200">
+                <li>
+                  <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="flex items-center gap-2 group hover:text-white transition-colors">
+                    <MessageCircle className="w-4 h-4 text-sage-400 group-hover:animate-pulse" /> WhatsApp Chatbot
+                  </a>
+                </li>
+                <li><Link to="/schemes" className="hover:text-white transition-colors hover:translate-x-1 inline-block">Govt Schemes</Link></li>
+                <li><Link to="/donors" className="hover:text-white transition-colors hover:translate-x-1 inline-block">Blood Donors</Link></li>
+                <li><Link to="/appointments" className="hover:text-white transition-colors hover:translate-x-1 inline-block">Appointments</Link></li>
+              </ul>
+            </motion.div>
 
             <motion.div
-
               initial={{ opacity: 0, y: 20 }}
-
               whileInView={{ opacity: 1, y: 0 }}
-
               viewport={{ once: true }}
-
               transition={{ delay: 0.2 }}
-
             >
-
               <h4 className="font-semibold text-lg mb-4">{t('emergency')}</h4>
 
               <ul className="space-y-2 text-maatri-200">

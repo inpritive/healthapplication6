@@ -8,7 +8,7 @@ import { INDIAN_LANGUAGES } from '@/i18n/translations';
 
 import { useState } from 'react';
 
-import { Menu, X, Globe, ChevronDown } from 'lucide-react';
+import { Menu, X, Globe, ChevronDown, MessageCircle } from 'lucide-react';
 
 
 
@@ -217,6 +217,11 @@ export default function Navbar() {
               )}
 
             </div>
+
+            <a href="https://wa.me/919876543210" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 py-2 rounded-xl glass text-sage-700 text-sm font-medium transition-all hover:shadow-glass hover:bg-sage-50">
+              <MessageCircle className="w-4 h-4 text-sage-600" />
+              <span className="hidden lg:inline">Chatbot</span>
+            </a>
 
 
 

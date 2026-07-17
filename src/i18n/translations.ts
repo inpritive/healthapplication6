@@ -251,6 +251,11 @@ export const translations = {
     coverageGaps: 'Coverage Gaps',
     followUpRequired: 'Follow-up Required',
     resolvedToday: 'Resolved Today',
+    govtSchemes: 'Govt Schemes',
+    appointments: 'Appointments',
+    bloodDonors: 'Blood Donors',
+    postnatalCare: 'Postnatal Care',
+    birthPlan: 'Birth Preparedness',
   },
   hi: {
     appName: 'मातृट्रैक',
@@ -464,6 +469,11 @@ export const translations = {
     coverageGaps: 'कवरेज अंतराल',
     followUpRequired: 'फॉलो-अप आवश्यक',
     resolvedToday: 'आज हल किए गए',
+    govtSchemes: 'सरकारी योजनाएं',
+    appointments: 'अपॉइंटमेंट',
+    bloodDonors: 'रक्तदाता',
+    postnatalCare: 'प्रसवोत्तर देखभाल',
+    birthPlan: 'जन्म की तैयारी',
   },
 } as const;
 
