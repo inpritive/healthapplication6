@@ -13,9 +13,20 @@ const trackingCategories = [
   { key: 'trackSleep', icon: Moon, color: 'from-indigo-400 to-indigo-500', log: 'logSleep', unit: 'hours' },
   { key: 'trackMood', icon: Smile, color: 'from-yellow-400 to-yellow-500', log: 'logMood', unit: 'mood' },
   { key: 'trackExercise', icon: Dumbbell, color: 'from-green-400 to-green-500', log: 'logExercise', unit: 'minutes' },
-  { key: 'trackSupplement', icon: Pill, color: 'from-pink-400 to-pink-500', log: 'logSupplement', unit: 'tablets' },
-  { key: 'trackWeight', icon: Scale, color: 'from-teal-400 to-teal-500', log: 'logWeight', unit: 'kg' },
-  { key: 'trackSymptom', icon: Thermometer, color: 'from-red-400 to-red-500', log: 'logSymptom', unit: 'severity' }
+  { key: 'trackSupplements', icon: Pill, color: 'from-purple-400 to-purple-500', log: 'logSupplement', unit: 'supplement' },
+  { key: 'trackMedication', icon: Pill, color: 'from-red-400 to-red-500', log: 'logMedication', unit: 'medication' },
+  { key: 'trackWeight', icon: Scale, color: 'from-teal-400 to-teal-500', log: 'logWeight', unit: 'weight' },
+  { key: 'trackSymptoms', icon: Thermometer, color: 'from-coral-400 to-coral-500', log: 'logSymptom', unit: 'symptom' },
+  { key: 'trackAppointments', icon: Calendar, color: 'from-maatri-400 to-maatri-500', log: 'appointment', unit: 'appointment' },
+  { key: 'trackLabs', icon: FlaskConical, color: 'from-cyan-400 to-cyan-500', log: 'labResult', unit: 'labResult' },
+  { key: 'trackMentalHealth', icon: Brain, color: 'from-pink-400 to-pink-500', log: 'stress', unit: 'stress' },
+  { key: 'trackEnergy', icon: Zap, color: 'from-amber-400 to-amber-500', log: 'energy', unit: 'energy' },
+];
+
+const dailyProgress = [
+  { label: 'trackWater', current: 6, target: 8, unit: 'glasses' },
+  { label: 'trackNutrition', current: 1800, target: 2200, unit: 'calories' },
+  { label: 'trackSleep', current: 7, target: 8, unit: 'hours' },
 ];
 
 const dangerSignsList = [
