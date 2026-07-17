@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { ClipboardList, Hospital, Bus, MapPin, Users, Phone, Droplet, CreditCard, Save } from 'lucide-react';
+import { ClipboardList, Hospital, Bus, Users, Droplet, Save } from 'lucide-react';
 
 export default function BirthPreparednessPage() {
   const { t } = useLanguage();
@@ -38,7 +38,7 @@ export default function BirthPreparednessPage() {
           <div className="w-16 h-16 bg-coral-100 rounded-full flex items-center justify-center mx-auto mb-4 text-coral-600">
             <ClipboardList className="w-8 h-8" />
           </div>
-          <h1 className="section-title mb-4">{t('birthPlan')}</h1>
+          <h1 className="section-title mb-4">{t('birthPreparedness')}</h1>
           <p className="text-gray-600 text-lg">Plan ahead for a safe delivery. Fill out these details with your family and ASHA worker.</p>
         </motion.div>
 

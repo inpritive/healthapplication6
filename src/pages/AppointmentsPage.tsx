@@ -2,10 +2,9 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
-import { Calendar, Video, Clock, User, Stethoscope, MapPin } from 'lucide-react';
+import { Calendar, Video, Clock, Stethoscope, MapPin } from 'lucide-react';
 
 export default function AppointmentsPage() {
-  const { t } = useLanguage();
   const [activeTab, setActiveTab] = useState<'offline' | 'online'>('offline');
 
   const upcomingAppointments = [

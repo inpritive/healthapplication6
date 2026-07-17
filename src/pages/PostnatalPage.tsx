@@ -1,12 +1,8 @@
-import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
-import { useLanguage } from '@/i18n/LanguageContext';
 import { Baby, Activity, HeartPulse, Scale, Syringe, Clock, AlertTriangle, Droplets } from 'lucide-react';
 
 export default function PostnatalPage() {
-  const { t } = useLanguage();
-
   const newbornStats = [
     { label: 'Weight', value: '3.2 kg', icon: Scale, color: 'text-maatri-500' },
     { label: 'Heart Rate', value: '130 bpm', icon: HeartPulse, color: 'text-coral-500' },

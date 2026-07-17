@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
-import { useLanguage } from '@/i18n/LanguageContext';
 import { Droplet, Search, Phone, MapPin, UserPlus, ShieldCheck } from 'lucide-react';
 
 export default function BloodDonorPage() {
-  const { t } = useLanguage();
   const [bloodGroup, setBloodGroup] = useState('O+');
 
   const donors = [

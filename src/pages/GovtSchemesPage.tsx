@@ -1,11 +1,9 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
-import { useLanguage } from '@/i18n/LanguageContext';
-import { Landmark, CheckCircle, XCircle, Info, ChevronRight } from 'lucide-react';
+import { Landmark, CheckCircle, XCircle, Info } from 'lucide-react';
 
 export default function GovtSchemesPage() {
-  const { t } = useLanguage();
   const [formData, setFormData] = useState({
     firstPregnancy: false,
     bplCard: false,

@@ -255,7 +255,7 @@ export const translations = {
     appointments: 'Appointments',
     bloodDonors: 'Blood Donors',
     postnatalCare: 'Postnatal Care',
-    birthPlan: 'Birth Preparedness',
+    birthPreparedness: 'Birth Preparedness',
   },
   hi: {
     appName: 'मातृट्रैक',
@@ -473,7 +473,7 @@ export const translations = {
     appointments: 'अपॉइंटमेंट',
     bloodDonors: 'रक्तदाता',
     postnatalCare: 'प्रसवोत्तर देखभाल',
-    birthPlan: 'जन्म की तैयारी',
+    birthPreparedness: 'जन्म की तैयारी',
   },
 } as const;
 

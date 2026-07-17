@@ -72,7 +72,7 @@ export default function WellnessTrackerPage() {
               <p className="text-sm text-gray-600 mb-4">Select any symptoms you are experiencing today:</p>
               <div className="space-y-2 mb-4">
                 {dangerSignsList.map((sign, i) => (
-                  <label key={i} className="flex items-start gap-3 cursor-pointer group">
+                  <label key={i} onClick={() => toggleSign(sign)} className="flex items-start gap-3 cursor-pointer group">
                     <div className={`mt-0.5 flex-shrink-0 w-5 h-5 rounded border flex items-center justify-center transition-colors ${checkedSigns.includes(sign) ? 'bg-coral-500 border-coral-500' : 'border-gray-300 group-hover:border-coral-400'}`}>
                       {checkedSigns.includes(sign) && <Check className="w-3.5 h-3.5 text-white" />}
                     </div>
