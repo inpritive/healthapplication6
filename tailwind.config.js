@@ -41,16 +41,25 @@ export default {
         'float': 'float 6s ease-in-out infinite',
         'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
         'spin-slow': 'spin 20s linear infinite',
+        'pulse-glow': 'pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite',
       },
       keyframes: {
         float: {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-20px)' },
         },
+        'pulse-glow': {
+          '0%, 100%': { opacity: 1, transform: 'scale(1)' },
+          '50%': { opacity: 0.8, transform: 'scale(1.05)' },
+        },
       },
       boxShadow: {
         'maatri': '0 10px 40px -10px rgba(13, 148, 136, 0.3)',
         'card': '0 4px 20px rgba(0, 0, 0, 0.08)',
+        'glow': '0 0 20px rgba(13, 148, 136, 0.5)',
+        'coral': '0 10px 40px -10px rgba(244, 63, 94, 0.3)',
+        'glass': '0 8px 32px 0 rgba(31, 38, 135, 0.07)',
+        'inner-glow': 'inset 0 0 20px rgba(255, 255, 255, 0.5)',
       },
     },
   },
