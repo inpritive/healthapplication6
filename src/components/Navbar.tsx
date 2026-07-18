@@ -80,7 +80,7 @@ export default function Navbar() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
-        <div className={`flex items-center justify-between transition-all duration-300 ${scrolled ? 'h-14' : 'h-16'}`}>
+        <div className={`flex items-center justify-between gap-4 xl:gap-8 transition-all duration-300 ${scrolled ? 'h-14' : 'h-16'}`}>
 
           <Link to="/" className="flex items-center gap-3 group">
 
@@ -104,7 +104,7 @@ export default function Navbar() {
 
 
 
-          <div className="hidden lg:flex items-center gap-1">
+          <div className="hidden xl:flex items-center gap-1">
 
             {navLinks.map(link => {
 
@@ -220,7 +220,7 @@ export default function Navbar() {
 
             <a href="https://wa.me/916358810105" target="_blank" rel="noreferrer" className="flex items-center gap-1.5 px-3 py-2 rounded-xl glass text-sage-700 text-sm font-medium transition-all hover:shadow-glass hover:bg-sage-50">
               <MessageCircle className="w-4 h-4 text-sage-600" />
-              <span className="hidden lg:inline">Chatbot</span>
+              <span className="hidden xl:inline">Chatbot</span>
             </a>
 
 
@@ -233,7 +233,7 @@ export default function Navbar() {
 
 
 
-            <button onClick={() => setMobileOpen(!mobileOpen)} className="lg:hidden p-2 rounded-xl hover:bg-maatri-50/80 transition-colors">
+            <button onClick={() => setMobileOpen(!mobileOpen)} className="xl:hidden p-2 rounded-xl hover:bg-maatri-50/80 transition-colors">
 
               {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
 
@@ -257,7 +257,7 @@ export default function Navbar() {
 
           exit={{ opacity: 0, height: 0 }}
 
-          className="lg:hidden glass border-t border-white/30"
+          className="xl:hidden glass border-t border-white/30"
 
         >
 
