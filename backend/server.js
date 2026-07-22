@@ -38,7 +38,7 @@ const __dirname = path.dirname(__filename);
 app.use(express.static(path.join(__dirname, '../dist')));
 
 // Anything that doesn't match the API routes should be handled by React Router
-app.get('*', (req, res) => {
+app.get(/(.*)/, (req, res) => {
   res.sendFile(path.join(__dirname, '../dist/index.html'));
 });
 
