@@ -1,7 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from '@/i18n/LanguageContext';
 import { AuthProvider } from '@/contexts/AuthContext';
-import LandingPage from '@/pages/LandingPage';
 import StatsPage from '@/pages/StatsPage';
 import DashboardPage from '@/pages/DashboardPage';
 import LoginPage from '@/pages/LoginPage';
