@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
@@ -47,7 +48,7 @@ export default function HealthEducationPage() {
             ))}
           </div>
 
-          <div className="card mt-8 bg-gradient-to-br from-maatri-50 to-sage-100">
+          <Link to="/birth-plan" className="card block mt-8 bg-gradient-to-br from-maatri-50 to-sage-100 hover:shadow-lg transition-all cursor-pointer">
             <div className="flex items-center gap-4">
               <BookOpen className="w-12 h-12 text-maatri-600" />
               <div>
@@ -55,7 +56,7 @@ export default function HealthEducationPage() {
                 <p className="text-gray-600 text-sm mt-1">{t('birthPlan')} &bull; {t('transportArrangement')} &bull; {t('nearestPHC')}</p>
               </div>
             </div>
-          </div>
+          </Link>
         </motion.div>
       </div>
     </Layout>

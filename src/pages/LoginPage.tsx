@@ -77,7 +77,7 @@ export default function LoginPage() {
   };
 
   return (
-    <Layout show3D variant3D="hero">
+    <Layout show3D variant3D="hero" hideNav hideFooter>
       <div className="min-h-[80vh] flex items-center justify-center px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}

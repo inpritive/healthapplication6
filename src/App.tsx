@@ -28,7 +28,7 @@ export default function App() {
       <LanguageProvider>
         <BrowserRouter>
           <Routes>
-          <Route path="/" element={<LandingPage />} />
+          <Route path="/" element={<LoginPage />} />
           <Route path="/stats" element={<StatsPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
           <Route path="/login" element={<LoginPage />} />
