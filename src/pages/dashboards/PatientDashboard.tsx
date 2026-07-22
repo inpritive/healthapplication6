@@ -1,11 +1,9 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { HeartPulse, Calendar, Phone, Landmark, CheckCircle2, Shield, Apple } from 'lucide-react';
-import { useLanguage } from '@/i18n/LanguageContext';
+import { HeartPulse, Calendar, Phone, CheckCircle2, Shield, Apple } from 'lucide-react';
 import { useAuth } from '@/contexts/AuthContext';
 
 export default function PatientDashboard() {
-  const { t } = useLanguage();
   const { user } = useAuth();
 
   return (

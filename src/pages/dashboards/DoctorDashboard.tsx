@@ -1,10 +1,8 @@
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { Calendar, Stethoscope, Droplet, Clock, Activity, FileText } from 'lucide-react';
-import { useLanguage } from '@/i18n/LanguageContext';
+import { Calendar, Stethoscope, Droplet, Activity, FileText } from 'lucide-react';
 
 export default function DoctorDashboard() {
-  const { t } = useLanguage();
 
   const patientsList = [
     { name: 'Sunita Devi', condition: 'High BP (150/95)', status: 'Critical', age: 24, weeks: 32 },
