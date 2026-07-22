@@ -3,7 +3,7 @@ import { motion, useScroll, useMotionValueEvent } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
 
 import { useLanguage } from '@/i18n/LanguageContext';
-
+import { useAuth } from '@/contexts/AuthContext';
 import { INDIAN_LANGUAGES } from '@/i18n/translations';
 
 import { useState } from 'react';
@@ -19,10 +19,9 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
 
   const [langOpen, setLangOpen] = useState(false);
-
   const [scrolled, setScrolled] = useState(false);
-
   const location = useLocation();
+  const { user, role, logout } = useAuth();
 
   const { scrollY } = useScroll();
 
@@ -36,25 +35,19 @@ export default function Navbar() {
 
 
 
-  const navLinks = [
-
+  let navLinks = [
     { to: '/', label: t('home') },
-
     { to: '/stats', label: t('stats') },
-
     { to: '/dashboard', label: t('dashboard') },
-
     { to: '/emergency', label: t('emergency') },
-
     { to: '/education', label: t('education') },
-
     { to: '/about', label: t('about') },
-
     { to: '/contact', label: t('contact') },
-
   ];
 
-
+  if (role === 'pregnant_woman') {
+    navLinks = navLinks.filter(l => l.to !== '/stats'); // Hide population stats from patient
+  }
 
   const currentLang = INDIAN_LANGUAGES.find(l => l.code === language);
 
@@ -225,11 +218,15 @@ export default function Navbar() {
 
 
 
-            <Link to="/login" className="btn-primary text-sm !py-2 !px-4 hidden sm:inline-flex">
-
-              {t('login')}
-
-            </Link>
+            {user ? (
+              <button onClick={() => { logout(); setMobileOpen(false); }} className="btn-primary text-sm !py-2 !px-4 hidden sm:inline-flex bg-coral-500 hover:bg-coral-600 shadow-coral-500/25">
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" className="btn-primary text-sm !py-2 !px-4 hidden sm:inline-flex">
+                {t('login')}
+              </Link>
+            )}
 
 
 
@@ -303,11 +300,15 @@ export default function Navbar() {
 
             ))}
 
-            <Link to="/login" onClick={() => setMobileOpen(false)} className="block btn-primary text-center mt-2">
-
-              {t('login')}
-
-            </Link>
+            {user ? (
+              <button onClick={() => { logout(); setMobileOpen(false); }} className="block w-full btn-primary text-center mt-2 bg-coral-500">
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" onClick={() => setMobileOpen(false)} className="block btn-primary text-center mt-2">
+                {t('login')}
+              </Link>
+            )}
 
           </div>
 

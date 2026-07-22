@@ -1,11 +1,9 @@
-import type { VercelRequest, VercelResponse } from '@vercel/node';
+import express from 'express';
+import { connectToDatabase } from '../db.js';
 
-export default async function handler(req: VercelRequest, res: VercelResponse) {
-  if (req.method !== 'POST') {
-    res.setHeader('Allow', ['POST']);
-    return res.status(405).json({ error: `Method ${req.method} Not Allowed` });
-  }
+const router = express.Router();
 
+router.post('/', async (req, res) => {
   const { phone, role } = req.body || {};
   if (!phone || !role) {
     return res.status(400).json({ error: 'Phone and role are required' });
@@ -22,7 +20,6 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   }
 
   try {
-    const { connectToDatabase } = await import('./lib/db.js');
     const { db } = await connectToDatabase();
     const usersCollection = db.collection('users');
 
@@ -36,9 +33,11 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     }
 
     return res.status(200).json(user);
-  } catch (error: unknown) {
+  } catch (error) {
     const message = error instanceof Error ? error.message : 'Database connection error';
     console.error('Login API error:', message);
-    return res.status(200).json(userData);
+    return res.status(200).json(userData); // Fallback to memory
   }
-}
+});
+
+export default router;

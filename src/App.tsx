@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { LanguageProvider } from '@/i18n/LanguageContext';
+import { AuthProvider } from '@/contexts/AuthContext';
 import LandingPage from '@/pages/LandingPage';
 import StatsPage from '@/pages/StatsPage';
 import DashboardPage from '@/pages/DashboardPage';
@@ -23,9 +24,10 @@ import BirthPreparednessPage from '@/pages/BirthPreparednessPage';
 
 export default function App() {
   return (
-    <LanguageProvider>
-      <BrowserRouter>
-        <Routes>
+    <AuthProvider>
+      <LanguageProvider>
+        <BrowserRouter>
+          <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/stats" element={<StatsPage />} />
           <Route path="/dashboard" element={<DashboardPage />} />
@@ -49,5 +51,6 @@ export default function App() {
         </Routes>
       </BrowserRouter>
     </LanguageProvider>
+    </AuthProvider>
   );
 }

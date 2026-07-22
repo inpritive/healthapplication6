@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import Layout from '@/components/Layout';
 import { useLanguage } from '@/i18n/LanguageContext';
+import { useAuth } from '@/contexts/AuthContext';
 import { User, Baby, Stethoscope, Shield } from 'lucide-react';
 
 const roles = [
@@ -15,6 +16,7 @@ const roles = [
 
 export default function LoginPage() {
   const { t } = useLanguage();
+  const { login } = useAuth();
   const navigate = useNavigate();
   const [selectedRole, setSelectedRole] = useState('');
   const [phone, setPhone] = useState('');
@@ -38,7 +40,7 @@ export default function LoginPage() {
   };
 
   const saveUserAndRedirect = (user: Record<string, unknown>) => {
-    localStorage.setItem('maatritrack-user', JSON.stringify(user));
+    login(user as any);
     navigate('/dashboard');
   };
 
